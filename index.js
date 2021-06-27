@@ -1,5 +1,6 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
+const generateMarkdown = require('./utils/generateMarkdown.js');
 // TODO: Create an array of questions for user input
 const questions = [{
     type: 'input',
@@ -110,7 +111,7 @@ const questions = [{
     name: 'license',
     message: 'What kind of license will this project have?',
     // wasn't sure how extensive to make the list of licenses so started with the list
-    choices: ['Unlicense', 'MIT License', 'GNU GPLv3', 'AGPLv3','Apache 2.0'],
+    choices: ['Unlicense', 'MIT', 'GNU GPLv3', 'AGPLv3','Apache 2.0'],
     when: ({confirmLicense}) => {
         if(confirmLicense){
             return true;
@@ -159,4 +160,9 @@ function init() {
 }
 
 // Function call to initialize app
-init().then(data => console.log(data));
+init()
+.then(data => {
+    console.log(data)
+   return generateMarkdown(data)
+})
+.then(md => console.log(md));
