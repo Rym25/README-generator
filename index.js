@@ -26,6 +26,24 @@ const questions = [{
             return false;
         }
     }
+},
+{
+    type: 'confirm',
+    name: 'confirmInstall',
+    message: 'Would you like to include a section with instructions on how to install your application?',
+    default: true
+},
+{
+    type: 'input',
+    name: 'installation',
+    message: 'How should users install your application?',
+    when: ({confirmInstall}) => {
+        if(confirmInstall) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }];
 
 // TODO: Create a function to write README file
