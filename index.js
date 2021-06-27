@@ -100,15 +100,30 @@ const questions = [{
     }
 },
 {
+    type: 'confirm',
+    name: 'confirmLicense',
+    message: 'Will you be including a license with this project?',
+    default: true
+},
+{
     type: 'list',
     name: 'license',
     message: 'What kind of license will this project have?',
-    choices: ['No License', 'MIT License', 'GNU GPLv3', 'AGPLv3','Apache 2.0']
+    // wasn't sure how extensive to make the list of licenses so started with the list
+    choices: ['Unlicense', 'MIT License', 'GNU GPLv3', 'AGPLv3','Apache 2.0'],
+    when: ({confirmLicense}) => {
+        if(confirmLicense){
+            return true;
+        } else {
+            return false;
+        }
+    }
 },
 {
     type: 'confirm',
     name: 'confirmQuestions',
-    message: 'Would you like to provide a link to your GitHub profile and email address so users can contact you with questions?'
+    message: 'Would you like to provide a link to your GitHub profile and email address so users can contact you with questions?',
+    default: true
 },
 {
     type: 'input',
