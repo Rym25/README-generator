@@ -85,7 +85,7 @@ const questions = [{
 {
     type: 'confirm',
     name: 'confirmTests',
-    message: 'If you wrote test for your project, would you like to provide examples of how to run them?',
+    message: 'If you wrote tests for your project, would you like to provide examples of how to run them?',
     default: true
 },
 {

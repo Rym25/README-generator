@@ -21,7 +21,8 @@ function renderLicenseLink(license) {
   if (!license) {
     return '';
   } else {
-    return `Licensed under the [${license}](LICENSE.txt) license`
+    return `
+Licensed under the [${license}](LICENSE.txt) license`
   }
 }
 
@@ -45,6 +46,7 @@ function renderInstallationSection(input) {
     return '';
   } else {
     return`
+
 ## Installation
 
 ${input.installation}
@@ -95,7 +97,6 @@ function renderQuestionsSection(input) {
     return`
 ## Question
 
-If you have any questions regarding this project please contact me
 [My GitHub](https://github.com/${input.userName})
 Email: <${input.email}>
 `
@@ -113,13 +114,7 @@ ${renderLicenseBadge(license)}
 
 ## Description
 
-${input.description}
-${renderInstallationSection(input)}
-${renderUsageSection(input)}
-${renderContributeSection(input)}
-${renderTestsSection(input)}
-${renderLicenseSection(license)}
-${renderQuestionsSection(input)}
+${input.description}${renderInstallationSection(input)}${renderUsageSection(input)}${renderContributeSection(input)}${renderTestsSection(input)}${renderLicenseSection(license)}${renderQuestionsSection(input)}
 `;
 }
 
