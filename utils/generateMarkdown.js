@@ -8,12 +8,9 @@ function renderLicenseBadge(license) {
     'AGPLv3': '[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)',
     'Apache 2.0': '[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
   }
-  console.log('license in badge function',license);
   if (!license) {
-    console.log('license was false')
     return '';
   } else {
-    console.log('license was true')
     return badges[license];
   }
 }
@@ -42,6 +39,69 @@ ${renderLicenseLink(license)}
   }
 }
 
+// Create functions for rendering the other sections
+function renderInstallationSection(input) {
+  if(!input.confirmInstall){
+    return '';
+  } else {
+    return`
+## Installation
+
+${input.installation}
+`
+  }
+}
+
+function renderUsageSection(input) {
+  if(!input.confirmUsage){
+    return '';
+  } else {
+    return`
+## Usage
+
+${input.usage}
+`
+  }
+}
+
+function renderContributeSection(input) {
+  if(!input.confirmContribute){
+    return '';
+  } else {
+    return`
+## Contributing
+
+${input.contribute}
+`
+  }
+}
+
+function renderTestsSection(input) {
+  if(!input.confirmContribute){
+    return '';
+  } else {
+    return`
+## Tests
+
+${input.tests}
+`
+  }
+}
+
+function renderQuestionsSection(input) {
+  if(!input.confirmQuestions){
+    return '';
+  } else {
+    return`
+## Question
+
+If you have any questions regarding this project please contact me
+[My GitHub](https://github.com/${input.userName})
+Email: <${input.email}>
+`
+  }
+}
+
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   const {license, ...input} = data; 
@@ -54,8 +114,13 @@ ${renderLicenseBadge(license)}
 ## Description
 
 ${input.description}
+${renderInstallationSection(input)}
+${renderUsageSection(input)}
+${renderContributeSection(input)}
+${renderTestsSection(input)}
 ${renderLicenseSection(license)}
-  `;
+${renderQuestionsSection(input)}
+`;
 }
 
 module.exports = generateMarkdown;
