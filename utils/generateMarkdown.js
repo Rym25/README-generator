@@ -40,6 +40,48 @@ ${renderLicenseLink(license)}
   }
 }
 
+function renderTableOfContents(input) {
+  if (input.toGenerate.includes('Installation')){
+    var inst = `* [Installation](#installation)`;
+  } else {
+    var inst = ``;
+  }
+  if (input.toGenerate.includes('Usage')){
+    var use = `* [Usage](#usage)`;
+  } else {
+    var use = ``;
+  }
+  if (input.toGenerate.includes('Contributing')){
+    var cont = `* [Contributing](#contributing)`;
+  } else {
+    var cont = ``;
+  }
+  if (input.toGenerate.includes('Tests')){
+    var test = `* [Tests](#tests)`;
+  } else {
+    var test = ``;
+  }
+  if (input.toGenerate.includes('License')){
+    var lice = `* [License](#license)`;
+  } else {
+    var lice = ``;
+  }
+  if (input.toGenerate.includes('Questions')){
+    var ques = `* [Questions](#questions)`;
+  } else {
+    var ques = ``;
+  }
+  return `
+  ## Table of Contents
+  ${inst}
+  ${use}
+  ${cont}
+  ${test}
+  ${lice}
+  ${ques}
+  `
+}
+
 // Create functions for rendering the other sections
 function renderInstallationSection(input) {
   if(!input.toGenerate.includes('Installation')){
@@ -95,7 +137,7 @@ function renderQuestionsSection(input) {
     return '';
   } else {
     return`
-## Question
+## Questions
 
 [My GitHub](https://github.com/${input.userName})
 
@@ -107,15 +149,16 @@ Email: <${input.email}>
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   const {license, ...input} = data; 
-  console.log('license',license);
-  console.log('input',input);
   return `
 # ${input.title}
 ${renderLicenseBadge(license)}
 
 ## Description
 
-${input.description}${renderInstallationSection(input)}${renderUsageSection(input)}${renderContributeSection(input)}${renderTestsSection(input)}${renderLicenseSection(license)}${renderQuestionsSection(input)}
+${input.description}
+${renderTableOfContents(input)}
+
+${renderInstallationSection(input)}${renderUsageSection(input)}${renderContributeSection(input)}${renderTestsSection(input)}${renderLicenseSection(license)}${renderQuestionsSection(input)}
 `;
 }
 
