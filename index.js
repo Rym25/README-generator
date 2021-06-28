@@ -35,12 +35,6 @@ const questions = [{
     message: 'What sections would you like to include in the README?',
     choices:['Installation','Usage','Contributing','Tests','License','Questions']
 },
-// {
-//     type: 'confirm',
-//     name: 'confirmInstall',
-//     message: 'Would you like to include a section with instructions on how to install your project?',
-//     default: true
-// },
 {
     type: 'input',
     name: 'installation',
@@ -53,12 +47,6 @@ const questions = [{
         }
     }
 },
-// {
-//     type: 'confirm',
-//     name: 'confirmUsage',
-//     message: 'Would you like to include a section with usage information for your project?',
-//     default: true
-// },
 {
     type: 'input',
     name: 'usage',
@@ -71,12 +59,6 @@ const questions = [{
         }
     }
 },
-// {
-//     type: 'confirm',
-//     name: 'confirmContribute',
-//     message: 'Would you like to include a section informing others how they can contribute to this project?',
-//     default: true
-// },
 {
     type: 'input',
     name: 'contribute',
@@ -89,12 +71,6 @@ const questions = [{
         }
     }
 },
-// {
-//     type: 'confirm',
-//     name: 'confirmTests',
-//     message: 'If you wrote tests for your project, would you like to provide examples of how to run them?',
-//     default: true
-// },
 {
     type: 'input',
     name: 'tests',
@@ -107,12 +83,6 @@ const questions = [{
         }
     }
 },
-// {
-//     type: 'confirm',
-//     name: 'confirmLicense',
-//     message: 'Will you be including a license with this project?',
-//     default: true
-// },
 {
     type: 'list',
     name: 'license',
@@ -127,12 +97,6 @@ const questions = [{
         }
     }
 },
-// {
-//     type: 'confirm',
-//     name: 'confirmQuestions',
-//     message: 'Would you like to provide a link to your GitHub profile and email address so users can contact you with questions?',
-//     default: true
-// },
 {
     type: 'input',
     name: 'userName',
