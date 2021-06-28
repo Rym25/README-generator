@@ -42,7 +42,7 @@ ${renderLicenseLink(license)}
 
 // Create functions for rendering the other sections
 function renderInstallationSection(input) {
-  if(!input.confirmInstall){
+  if(!input.toGenerate.includes('Installation')){
     return '';
   } else {
     return`
@@ -55,7 +55,7 @@ ${input.installation}
 }
 
 function renderUsageSection(input) {
-  if(!input.confirmUsage){
+  if(!input.toGenerate.includes('Usage')){
     return '';
   } else {
     return`
@@ -67,7 +67,7 @@ ${input.usage}
 }
 
 function renderContributeSection(input) {
-  if(!input.confirmContribute){
+  if(!input.toGenerate.includes('Contributing')){
     return '';
   } else {
     return`
@@ -79,7 +79,7 @@ ${input.contribute}
 }
 
 function renderTestsSection(input) {
-  if(!input.confirmContribute){
+  if(!input.toGenerate.includes('Tests')){
     return '';
   } else {
     return`
@@ -91,13 +91,14 @@ ${input.tests}
 }
 
 function renderQuestionsSection(input) {
-  if(!input.confirmQuestions){
+  if(!input.toGenerate.includes('Questions')){
     return '';
   } else {
     return`
 ## Question
 
 [My GitHub](https://github.com/${input.userName})
+
 Email: <${input.email}>
 `
   }
