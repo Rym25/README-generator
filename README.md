@@ -36,4 +36,4 @@ A sample of the type of README that can be generated can be found in the dist fo
 
 ## Demonstration
 
-Here is a link to a video on how to use the application: [link]()
+Here is a link to a video on how to use the application: [link to google drive video](https://drive.google.com/file/d/1AHWYadFKsaK3jWlFWnThkULpZvMJv4Fi/view)
